@@ -59,22 +59,4 @@ model.addAttribute("user",new User());
         userService.delete(id);
         return "redirect:/users";
     }
-//    @GetMapping("delete/{id}")
-//    public String deleteUser(@PathVariable("id") Long id) {
-//        userService.delete(id);
-//        return "redirect:/client";
-//    }
-//
-//    @GetMapping("edit/{id}")
-//    public String updateUserForm(@PathVariable("id") Long id, Model model) {
-//        User user = userService.findById(id);
-//        model.addAttribute("user", user);
-//        return "client/edit";
-//    }
-//
-//    @PostMapping("update")
-//    public String updateUser(User user) {
-//        userService.edit(user);
-//        return "redirect:/client";
-//    }
 }

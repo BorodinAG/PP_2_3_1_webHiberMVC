@@ -19,7 +19,8 @@ public class UserDaoImpl {
     }
 
     public void delete(long id) {
-        entityManager.remove(entityManager.find(User.class, id));
+//        entityManager.remove(entityManager.find(User.class, id));
+        entityManager.remove(findById(id));
     }
 
     public void add(User user) {
