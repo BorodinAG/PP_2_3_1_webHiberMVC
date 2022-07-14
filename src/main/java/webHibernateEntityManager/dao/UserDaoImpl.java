@@ -1,11 +1,12 @@
 package webHibernateEntityManager.dao;
 
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 import webHibernateEntityManager.model.User;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.criteria.CriteriaDelete;
 import java.util.List;
 
 @Repository
@@ -17,10 +18,9 @@ public class UserDaoImpl {
         return entityManager.createQuery("select u from User u", User.class).getResultList();
     }
 
-    public CriteriaDelete delete(long id) {
+    public void delete(long id) {
 //        entityManager.remove(findById(id));
         entityManager.createQuery("delete from User where id=:id",User.class).executeUpdate();
-        return null;
     }
 
     public void add(User user) {
