@@ -6,6 +6,7 @@ import org.springframework.transaction.annotation.Transactional;
 import webHibernateEntityManager.model.User;
 
 import javax.persistence.EntityManager;
+import javax.persistence.NamedQuery;
 import javax.persistence.PersistenceContext;
 import java.util.List;
 
@@ -20,7 +21,7 @@ public class UserDaoImpl {
 
     public void delete(long id) {
 //        entityManager.remove(findById(id));
-        entityManager.createQuery("delete from User where id=:id",User.class).executeUpdate();
+        entityManager.createQuery("DELETE FROM User user WHERE user.id=:id").setParameter("id", id).executeUpdate();
     }
 
     public void add(User user) {
